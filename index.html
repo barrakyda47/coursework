@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Візуалізація алгоритмів сортування</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class = "settingsPanelBox"></div>
+
+<header class = "page-header" role = "banner">Візуалізація алгоритмів сортування</header>
+
+<div class="mainPage" role="main">
+
+    <div class="settingsPanel">
+    <form>
+        <label class="label">Виберіть алгоритм сортування:</label><br>
+        <select name = "sortTypeDom" class="softFlowSelect" onchange="changeSortType()">
+            <option value = "combSort">Сортування гребінцем</option>
+            <option value = "bubbleSort">Сортування бульбашкою</option>
+            <option value = "cocktailSort">Змішане / Шейкерне сортування</option>
+        </select>
+    </form><br>
+        <label class="label">Налаштування:</label><hr>
+        <div class="settingsRange">
+            Радіус сфери / Висота ліній / Яскравість <br>
+            <input title="Sphere Radius" class="rangeCSS" type="range" min="30" max="150" 
+			step="1" value="90" oninput="changeRadius()" id="sphereRadius"><br>
+            Кількість елементів<br>
+            <input title="Number of elements" class="rangeCSS" type="range" min="30" max="240"
+			step="1" value="135" oninput="calcNewArray()" id="elementsNumb"><br>
+            Швидкість<br>
+            <input title="Speed" class="rangeCSS" type="range" min="10" max="200" 
+			step="5" value="105" oninput="changeSpeed()" id="codeSpeed"><br>
+            Гучність<br>
+            <input title="Volume" class="rangeCSS" type="range" min="0" max="0.05" 
+			step="0.0005" value="0" id="volume">
+        </div>
+    </div>
+
+    <div class="sortViewsContainer">
+        <div class="sortButton transition" id = "roundView" onclick="changeSortView('roundView')"></div>
+        <div class="sortButton transition" id = "classicView" onclick="changeSortView('classicView')"></div>
+        <div class="sortButton transition" id = "gradientView" onclick="changeSortView('gradientView')"></div><br>
+            <div class="buttonContainer">
+                <div class="playButton button transition" id = "firstButton" onmousedown="mouseDown()" 
+				onclick="startButton()">
+                    <div class="sprite-play"></div>
+                </div>
+                <div class="resetButton button transition" onclick="calcNewArray()">
+                    <div class="sprite-reset"></div>
+                </div>
+            </div><br>
+        <div class="sortPlace">
+            <canvas id="canvas" width="900" height="900" ></canvas>
+        </div>
+    </div>
+
+</div>
+
+<footer class=page-footer>
+    Скавронський Дмитро <br>  Рівне 2020
+</footer>
+
+</body>
+<script src="sort.js"></script>
+</html>
+
